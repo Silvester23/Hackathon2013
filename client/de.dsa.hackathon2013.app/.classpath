@@ -5,14 +5,14 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
-	<classpathentry kind="lib" path="libs/de.dsa.smartdiag.interpreter.jar" sourcepath="/de.dsa.smartdiag.interpreter"/>
-	<classpathentry kind="lib" path="libs/de.dsa.smartdiag.interpreter.lib.jar"/>
-	<classpathentry kind="lib" path="libs/de.dsa.smartdiag.interpreter.transfer.jar"/>
-	<classpathentry kind="lib" path="libs/de.dsa.smartdiag.interpreter.xml.jar"/>
-	<classpathentry kind="lib" path="libs/de.dsa.smartdiag.vciapi.jar"/>
-	<classpathentry kind="lib" path="libs/de.dsa.smartdiag.vciapi.lib.jar"/>
-	<classpathentry kind="lib" path="libs/de.dsa.hackaton2013.jar"/>
-	<classpathentry kind="lib" path="libs/de.dsa.hackaton2013.lib.jar"/>
-	<classpathentry kind="lib" path="libs/de.dsa.smartdiag.libs.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/de.dsa.smartdiag.interpreter.jar" sourcepath="/de.dsa.smartdiag.interpreter"/>
+	<classpathentry exported="true" kind="lib" path="libs/de.dsa.smartdiag.interpreter.lib.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/de.dsa.smartdiag.interpreter.transfer.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/de.dsa.smartdiag.interpreter.xml.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/de.dsa.smartdiag.vciapi.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/de.dsa.smartdiag.vciapi.lib.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/de.dsa.hackaton2013.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/de.dsa.hackaton2013.lib.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/de.dsa.smartdiag.libs.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
