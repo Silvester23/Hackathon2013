@@ -54,8 +54,6 @@ public class HttpGetTask extends AsyncTask<String, String, String>{
         super.onPostExecute(result);
         
         callback.onResponse(result);
-        
-        
-        
+
     }
 }
