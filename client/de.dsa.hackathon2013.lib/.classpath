@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="lib" path="/de.dsa.hackathon2013.app/libs/de.dsa.smartdiag.libs.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/android.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
