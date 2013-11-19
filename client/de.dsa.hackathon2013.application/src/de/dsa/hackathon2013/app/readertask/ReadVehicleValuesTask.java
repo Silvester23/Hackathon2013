@@ -201,13 +201,6 @@ public class ReadVehicleValuesTask extends AsyncTask<String, Object, Void> {
      * Read the measurement values from the vehicle all at once.
      */
     private void readMeasurementValues() {
-    	onProgressUpdate("Reading: Telefonmann!");
-        //String clockValue = mVehicleCommunication.readClock().toString();
-        onProgressUpdate(new DiagnosticValue(DiagnosticNames.CLOCK, "DAS TELEFON KLINGELT", ""));
-        onProgressUpdate(new DiagnosticValue(DiagnosticNames.CLOCK, "ICH BIN IM KELLER", ""));
-        onProgressUpdate(new DiagnosticValue(DiagnosticNames.CLOCK, "VIELLEICHT NUR VERWAEHLT", ""));
-        onProgressUpdate(new DiagnosticValue(DiagnosticNames.CLOCK, "DOCH ICH BIN SCHNELLER", ""));
-    	
         onProgressUpdate("Reading: " + DiagnosticNames.CLOCK);
         String clockValue = mVehicleCommunication.readClock().toString();
         onProgressUpdate(new DiagnosticValue(DiagnosticNames.CLOCK, clockValue, ""));

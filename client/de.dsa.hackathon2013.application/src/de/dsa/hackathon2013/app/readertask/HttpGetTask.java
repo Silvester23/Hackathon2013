@@ -17,10 +17,10 @@ import android.os.AsyncTask;
 import de.dsa.hackathon2013.app.DSADiagnosticsActivity;
 
 public class HttpGetTask extends AsyncTask<String, String, String>{
-	DSADiagnosticsActivity callback;
+	PollTask callback;
 	
-	public HttpGetTask(DSADiagnosticsActivity activity) {
-		callback = activity;
+	public HttpGetTask(PollTask callback) {
+		this.callback = callback;
 	}
 
     @Override
@@ -52,7 +52,7 @@ public class HttpGetTask extends AsyncTask<String, String, String>{
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        
+        System.out.println("Got a result!");
         callback.onResponse(result);
 
     }

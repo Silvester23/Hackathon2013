@@ -39,7 +39,7 @@ import de.dsa.smartdiag.vciapi.util.VciConstants;
  */
 public class ReadVehicleValuesLoop extends AsyncTask<String, Object, Void> {
 	// Sleep interval in ms
-	private static final int SLEEP_INTERVAL = 500;
+	private static final int SLEEP_INTERVAL = 1000;
 	
 	private int mTripId;
 	private String mVehicleId;
@@ -190,6 +190,7 @@ public class ReadVehicleValuesLoop extends AsyncTask<String, Object, Void> {
 		HttpClient httpclient = new DefaultHttpClient();
         HttpResponse response;
         String responseString = null;
+        int responseInt = -1;
         try {
             response = httpclient.execute(new HttpGet(new URI("http://svensblog.eu/index.php/push/getNewTrip/" + mVehicleId)));
             StatusLine statusLine = response.getStatusLine();
@@ -197,17 +198,19 @@ public class ReadVehicleValuesLoop extends AsyncTask<String, Object, Void> {
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
                 response.getEntity().writeTo(out);
                 responseString = out.toString();
+                responseInt = Integer.parseInt(responseString);
                 out.close();
             } else{
                 //Closes the connection.
                 response.getEntity().getContent().close();
                 throw new IOException(statusLine.getReasonPhrase());
             }
-        } catch (Exception e) {
-        	
+        }
+        catch (Exception e) {
+        	System.out.println("Failed getting trip id from server");
         }
         
-        return Integer.parseInt(responseString);
+        return responseInt;
 	}
     
     protected void updateTime() {

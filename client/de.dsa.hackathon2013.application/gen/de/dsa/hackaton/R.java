@@ -33,26 +33,24 @@ public final class R {
         public static final int value_icon=0x7f020009;
     }
     public static final class id {
-        public static final int action_settings=0x7f080013;
-        public static final int door_label=0x7f080008;
-        public static final int door_lock=0x7f080009;
-        public static final int door_unlock=0x7f08000a;
-        public static final int ipaddress_label=0x7f08000d;
-        public static final int ipaddress_text=0x7f08000e;
-        public static final int measurements_label=0x7f08000b;
-        public static final int mirror_down=0x7f080002;
-        public static final int mirror_label=0x7f080000;
-        public static final int mirror_left=0x7f080003;
-        public static final int mirror_right=0x7f080004;
-        public static final int mirror_up=0x7f080001;
-        public static final int refresh=0x7f08000c;
-        public static final int tableLayout=0x7f08000f;
-        public static final int unit=0x7f080012;
-        public static final int value=0x7f080011;
-        public static final int valueName=0x7f080010;
-        public static final int window_down=0x7f080007;
-        public static final int window_label=0x7f080005;
-        public static final int window_up=0x7f080006;
+        public static final int action_settings=0x7f080011;
+        public static final int averageFuel=0x7f080003;
+        public static final int averageFuelLabel=0x7f080002;
+        public static final int averageSpeed=0x7f080005;
+        public static final int averageSpeedLabel=0x7f080004;
+        public static final int elapsedTime=0x7f080001;
+        public static final int elapsedTimeLabel=0x7f080000;
+        public static final int ipaddress_label=0x7f08000b;
+        public static final int ipaddress_text=0x7f08000c;
+        public static final int numAccEvents=0x7f080009;
+        public static final int numAccEventsLabel=0x7f080008;
+        public static final int numBreakEvents=0x7f080007;
+        public static final int numBreakEventsLabel=0x7f080006;
+        public static final int refresh=0x7f08000a;
+        public static final int tableLayout=0x7f08000d;
+        public static final int unit=0x7f080010;
+        public static final int value=0x7f08000f;
+        public static final int valueName=0x7f08000e;
     }
     public static final class layout {
         public static final int activity_dsadiagnostics=0x7f030000;
@@ -65,13 +63,18 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
+        public static final int averageFuel=0x7f050012;
+        public static final int averageSpeed=0x7f050011;
         public static final int door_label=0x7f05000c;
         public static final int down=0x7f050006;
+        public static final int elapsedTime=0x7f050010;
         public static final int ip_address=0x7f05000e;
         public static final int left=0x7f050007;
         public static final int lock=0x7f05000b;
         public static final int measurements=0x7f05000d;
         public static final int mirror_label=0x7f050004;
+        public static final int numAccEvents=0x7f050014;
+        public static final int numBreakEvents=0x7f050013;
         public static final int right=0x7f050008;
         public static final int unit=0x7f05000f;
         public static final int unlock=0x7f05000a;

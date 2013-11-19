@@ -35,123 +35,100 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".DSADiagnosticsActivity" >
 
-    <TextView
-        android:id="@+id/mirror_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/mirror_label" />
-
+    
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dip"
         android:layout_weight="0.01" >
-
-        <ImageButton
-            android:id="@+id/mirror_up"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/up"
-            android:onClick="moveMirrorUp"
-            android:src="@drawable/up" />
-
-        <ImageButton
-            android:id="@+id/mirror_down"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/down"
-            android:onClick="moveMirrorDown"
-            android:src="@drawable/down" />
-
-        <ImageButton
-            android:id="@+id/mirror_left"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/left"
-            android:onClick="moveMirrorLeft"
-            android:src="@drawable/left" />
-
-        <ImageButton
-            android:id="@+id/mirror_right"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/right"
-            android:onClick="moveMirrorRight"
-            android:src="@drawable/right" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/window_label"
+        
+        <TextView
+        android:id="@+id/elapsedTimeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/window_label" />
-
+        android:text="@string/elapsedTime" />
+        
+        <TextView
+        android:id="@+id/elapsedTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+    </LinearLayout>
+    
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dip"
         android:layout_weight="0.01" >
-
-        <ImageButton
-            android:id="@+id/window_up"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/up"
-            android:onClick="moveWindowUp"
-            android:src="@drawable/up" />
-
-        <ImageButton
-            android:id="@+id/window_down"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/down"
-            android:onClick="moveWindowDown"
-            android:src="@drawable/down" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/door_label"
+        
+        <TextView
+        android:id="@+id/averageFuelLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/door_label" />
-
+        android:text="@string/averageFuel" />
+        
+        <TextView
+        android:id="@+id/averageFuel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+    </LinearLayout>
+    
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dip"
         android:layout_weight="0.01" >
-
-        <ImageButton
-            android:id="@+id/door_lock"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/lock"
-            android:onClick="lockDoor"
-            android:src="@drawable/lock" />
-
-        <ImageButton
-            android:id="@+id/door_unlock"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/unlock"
-            android:onClick="unlockDoor"
-            android:src="@drawable/unlock" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/measurements_label"
+        
+        <TextView
+        android:id="@+id/averageSpeedLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/measurements" />
+        android:text="@string/averageSpeed" />
+        
+        <TextView
+        android:id="@+id/averageSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.01" >
+        
+        <TextView
+        android:id="@+id/numBreakEventsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/numBreakEvents" />
+        
+        <TextView
+        android:id="@+id/numBreakEvents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.01" >
+        
+        <TextView
+        android:id="@+id/numAccEventsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/numAccEvents" />
+        
+        <TextView
+        android:id="@+id/numAccEvents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+    </LinearLayout>      
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dip"
         android:layout_weight="0.01" >
 
         <ImageButton
@@ -164,11 +141,6 @@
             android:src="@drawable/refresh" />
     </LinearLayout>
 
-    <ListView
-        android:id="@id/android:list"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" >
-    </ListView>
+    
 
 </LinearLayout>
