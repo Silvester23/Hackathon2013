@@ -2,6 +2,7 @@ package de.dsa.hackathon2013.app.readertask;
 
 
 import android.os.AsyncTask;
+import android.os.SystemClock;
 import de.dsa.hackathon2013.app.DSADiagnosticsActivity;
 
 public class PollTask extends AsyncTask<String, String, String>{
@@ -14,25 +15,18 @@ public class PollTask extends AsyncTask<String, String, String>{
     @Override
     protected String doInBackground(String ... args) {
     	int iteration = 0;
+    	while(true) {
+    		new HttpGetTask(this.callback).execute("http://www.svensblog.eu/index.php/poll/getValues/1112");
+    		publishProgress(Integer.toString(iteration));
+    		SystemClock.sleep(500);
+    	}
     	
-    	new HttpGetTask(this).execute("http://www.svensblog.eu/index.php/poll/getValues/1112");
-    	new HttpGetTask(this).execute("http://www.svensblog.eu/index.php/poll/getValues/1112");
-    	new HttpGetTask(this).execute("http://www.svensblog.eu/index.php/poll/getValues/1112");
-    	
-    	
-        while(true) {
-        	try {
-        		//System.out.println("Iteration: " + iteration);
-        		iteration++;
-        	    Thread.sleep(200);
-        	} catch(InterruptedException ex) {
-        	    Thread.currentThread().interrupt();
-        	}
-        }
     }
     
-    public void onResponse(String result) {
-    	this.callback.onResponse(result);
+    @Override
+    protected void onProgressUpdate(String... values) {
+        super.onProgressUpdate(values);
+        System.out.println(values[0]);
     }
 
     @Override

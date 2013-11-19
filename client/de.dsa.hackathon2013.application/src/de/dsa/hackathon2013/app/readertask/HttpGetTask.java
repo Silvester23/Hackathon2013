@@ -17,14 +17,19 @@ import android.os.AsyncTask;
 import de.dsa.hackathon2013.app.DSADiagnosticsActivity;
 
 public class HttpGetTask extends AsyncTask<String, String, String>{
-	PollTask callback;
+DSADiagnosticsActivity callback;
 	
-	public HttpGetTask(PollTask callback) {
-		this.callback = callback;
+	public HttpGetTask(DSADiagnosticsActivity activity) {
+		callback = activity;
 	}
+	
+	protected void onPreExecute() {
+		System.out.println("Started http task");
+    }
 
     @Override
     protected String doInBackground(String... uri) {
+    	
         HttpClient httpclient = new DefaultHttpClient();
         HttpResponse response;
         String responseString = null;
