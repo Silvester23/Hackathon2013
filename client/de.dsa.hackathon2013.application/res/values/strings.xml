@@ -17,5 +17,10 @@
     <string name="measurements">Measurements Reading</string>
     <string name="ip_address">IP Address</string>
     <string name="unit">Unit</string>
+    <string name="elapsedTime">Time Elapsed</string>
+    <string name="averageSpeed">Average Speed</string>
+    <string name="averageFuel">Average Fuel Consumption</string>
+    <string name="numBreakEvents"># Sudden Break Events</string>
+    <string name="numAccEvents"># Sudden Acceleration Events</string>
 
 </resources>

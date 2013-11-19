@@ -19,8 +19,11 @@
 package de.dsa.hackathon2013.app;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
 
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -30,10 +33,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
+import android.widget.TextView;
 import de.dsa.hackathon2013.DiagnosticNames;
 import de.dsa.hackathon2013.app.readertask.DiagnosticReaderFragment;
 import de.dsa.hackathon2013.app.readertask.DiagnosticReaderFragment.VehicleValuesReaderTaskCallbacks;
+import de.dsa.hackathon2013.app.readertask.HttpGetTask;
+import de.dsa.hackathon2013.app.readertask.PollTask;
 import de.dsa.hackaton.R;
 
 /**
@@ -105,16 +110,7 @@ public class DSADiagnosticsActivity extends Activity implements VehicleValuesRea
         // vehicle values.
         configureRetainedFragment();
 
-        // Create the vehicle values list and attach the adapter that will hold
-        // the data model.
-        ListView valuesList = (ListView)findViewById(android.R.id.list);
-        if (mListAdapter == null) {
-            if (mDiagValues == null) {
-                mDiagValues = new ArrayList<DiagnosticValue>();
-            }
-            mListAdapter = new DiagnosticValuesListAdapter(this, new ArrayList<DiagnosticValue>(mDiagValues));
-        }
-        valuesList.setAdapter(mListAdapter);
+
     }
 
     @Override
@@ -229,6 +225,7 @@ public class DSADiagnosticsActivity extends Activity implements VehicleValuesRea
      * Action methods to be executed when a click on a button is detected
      ************************************************************************* */
     public void measurementsRefresh(View view) {
+    	
         if (mTaskFragment.isReading()) {
             mTaskFragment.cancelTask();
         }
@@ -239,7 +236,44 @@ public class DSADiagnosticsActivity extends Activity implements VehicleValuesRea
             mListAdapter.addAll(mDiagValues);
             mListAdapter.notifyDataSetChanged();
         }
-        mTaskFragment.executeDiagnostic("Measurements");
+        
+        
+        PollTask testTask = new PollTask(this);
+        
+  
+        testTask.execute();
+        
+    }
+    
+    public void onResponse(String result) {
+    	try { 
+	        JSONObject object = (JSONObject) new JSONTokener(result).nextValue();
+	        int elapsedTime = object.getInt("elapsedTime");
+	    	double averageFuel =  object.getDouble("averageFuelConsumption");
+	    	double averageSpeed = object.getDouble("averageSpeed");
+	    	int numBreakEvents = object.getInt("nrSuddenBreakEvents");
+	    	int numAccEvents = object.getInt("nrSuddenAccelerationEvents");
+	    	
+	    	TextView timeView = (TextView)findViewById(R.id.elapsedTime);
+	    	
+	    	TextView fuelView = (TextView)findViewById(R.id.averageFuel);
+	    	TextView speedView = (TextView)findViewById(R.id.averageSpeed);
+	    	TextView breakView = (TextView)findViewById(R.id.numBreakEvents);
+	    	TextView accView = (TextView)findViewById(R.id.numAccEvents);
+	    	
+	    	
+	    	timeView.setText(Integer.toString(elapsedTime));
+	    	
+	    	fuelView.setText(Double.toString(averageFuel));
+	    	speedView.setText(Double.toString(averageSpeed));
+	    	breakView.setText(Integer.toString(numBreakEvents));
+	    	accView.setText(Integer.toString(numAccEvents));
+	    	
+	    	
+	    	
+    	} catch(JSONException e) {
+    		// TODO: do something
+    	}
     }
 
     /** Called when the user touches the mirror up button. */
