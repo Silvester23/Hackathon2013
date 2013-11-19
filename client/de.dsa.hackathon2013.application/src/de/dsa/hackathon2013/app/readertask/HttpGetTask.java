@@ -29,7 +29,7 @@ DSADiagnosticsActivity callback;
 
     @Override
     protected String doInBackground(String... uri) {
-    	
+    	System.out.println("Started executing HttpTask");
         HttpClient httpclient = new DefaultHttpClient();
         HttpResponse response;
         String responseString = null;

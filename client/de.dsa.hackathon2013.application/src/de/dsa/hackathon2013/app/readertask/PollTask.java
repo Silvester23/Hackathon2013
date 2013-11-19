@@ -1,8 +1,9 @@
 package de.dsa.hackathon2013.app.readertask;
 
 
+import java.util.Timer;
+
 import android.os.AsyncTask;
-import android.os.SystemClock;
 import de.dsa.hackathon2013.app.DSADiagnosticsActivity;
 
 public class PollTask extends AsyncTask<String, String, String>{
@@ -14,12 +15,21 @@ public class PollTask extends AsyncTask<String, String, String>{
 
     @Override
     protected String doInBackground(String ... args) {
+    	System.out.println("Telefonmann");
     	int iteration = 0;
-    	while(true) {
+    	/*while(true) {
     		new HttpGetTask(this.callback).execute("http://www.svensblog.eu/index.php/poll/getValues/1112");
     		publishProgress(Integer.toString(iteration));
     		SystemClock.sleep(500);
     	}
+    	*/
+    	
+    	Timer timer = new Timer();
+    	
+    	PollTimerTask timerTask = new PollTimerTask(this.callback);
+    	timer.scheduleAtFixedRate(timerTask, 0, 500);
+    	
+    	return "";
     	
     }
     
