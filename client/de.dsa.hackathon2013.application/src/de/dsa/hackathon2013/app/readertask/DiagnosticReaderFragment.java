@@ -41,6 +41,8 @@ public class DiagnosticReaderFragment extends Fragment implements OnBackStackCha
 
     /** The asynchronous task to read the values. */
     private ReadVehicleValuesTask mTask;
+    
+    private ReadVehicleValuesLoop mLoop;
 
     /**
      * Hold a reference to the parent Activity so we can report the task's
@@ -64,6 +66,9 @@ public class DiagnosticReaderFragment extends Fragment implements OnBackStackCha
         mCallbacks = (VehicleValuesReaderTaskCallbacks)getActivity();
         if (mTask != null) {
             mTask.setTaskCallback(mCallbacks);
+        }
+        if (mLoop != null) {
+            mLoop.setTaskCallback(mCallbacks);
         }
     }
 
@@ -89,8 +94,13 @@ public class DiagnosticReaderFragment extends Fragment implements OnBackStackCha
         if (mTask != null && !mTask.isCancelled()) {
             mTask.cancel(true);
         }
-        mTask = new ReadVehicleValuesTask(mCallbacks);
-        mTask.execute(pOperation);
+        
+        //mTask = new ReadVehicleValuesTask(mCallbacks);
+        //mTask.execute(pOperation);
+        
+        // Start loop
+        mLoop = new ReadVehicleValuesLoop(mCallbacks);
+        mLoop.execute(pOperation);
     }
 
     /**
@@ -161,12 +171,18 @@ public class DiagnosticReaderFragment extends Fragment implements OnBackStackCha
         if (mTask != null && !mTask.isCancelled()) {
             mTask.cancel(true);
         }
+        if (mLoop != null && !mLoop.isCancelled()) {
+        	mLoop.cancel(true);
+        }
     }
 
     @Override
     public void onBackStackChanged() {
         if (mTask != null && !mTask.isCancelled()) {
             mTask.cancel(true);
+        }
+        if (mLoop != null && !mLoop.isCancelled()) {
+        	mLoop.cancel(true);
         }
 
         if (getActivity() != null) {

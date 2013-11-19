@@ -110,7 +110,8 @@ public class DSADiagnosticsActivity extends Activity implements VehicleValuesRea
         // vehicle values.
         configureRetainedFragment();
 
-
+        // Start getting data
+        mTaskFragment.executeDiagnostic("Measurements");
     }
 
     @Override
@@ -225,7 +226,7 @@ public class DSADiagnosticsActivity extends Activity implements VehicleValuesRea
      * Action methods to be executed when a click on a button is detected
      ************************************************************************* */
     public void measurementsRefresh(View view) {
-    	
+    	/*
         if (mTaskFragment.isReading()) {
             mTaskFragment.cancelTask();
         }
@@ -236,11 +237,9 @@ public class DSADiagnosticsActivity extends Activity implements VehicleValuesRea
             mListAdapter.addAll(mDiagValues);
             mListAdapter.notifyDataSetChanged();
         }
-        
+        */
         
         PollTask testTask = new PollTask(this);
-        
-  
         testTask.execute();
         
     }
